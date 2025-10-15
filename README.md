@@ -39,3 +39,28 @@ Expose pod to outside world
 kubectl expose pod nginx-pod --type=NodePort --port=80  
 kubectl get svc
 ```
+deployment.yml
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2  # number of pods
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+```
+
