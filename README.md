@@ -2,6 +2,17 @@
 Localproject
 
 
+### Bring up the network interface
+```
+sudo ip link set ens33 up → activates the interface   
+sudo dhclient ens33 → requests an IPv4 via DHCP from your network/router
+```
+Check if you got IPv4
+```
+ip a show ens33
+hostname -I
+```
+Run Minikube
 ```
 minikube version
 minikube start --driver=docker
@@ -48,7 +59,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 2  # number of pods
+  replicas: 2  
   selector:
     matchLabels:
       app: nginx

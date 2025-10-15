@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    app: nginx
+    app: labelnginx
 spec:
   replicas: 2  # number of pods
   selector:
